@@ -1,0 +1,24 @@
+<head>
+  <title>big-o-ref</title>
+</head>
+
+<body>
+  <h1>Big O reference app</h1>
+  <select name="notationsList" id="notationsList">
+    {{#each notations}}
+    {{> notationElement }}
+    {{/each}}  
+  </select>    
+
+   
+  
+</body>
+
+<template name="notationElement">
+  <option value="{{name}}">{{name}}</option>
+</template>  
+
+<template name="notationView">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
