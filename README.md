@@ -1,4 +1,4 @@
- Project Name #
+## Big O Notation Reference App ##
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,21 +16,21 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
-  Big O Notation Reference App
+<!--## Heading ##
+  Big O Notation Reference App -->
 
-## Sub-Heading ##
+## Who it's for ##
   The Big O Notation Reference App is for engineers and students that want a quick way to
   reference and compare the running time of algorithms in big O notation.   
   
 
-## Summary ##
+## What it does ##
   Big O Notation Reference App provides a web and mobile app that lets users look up and compare
   orders of big O notation. This is highly usefull for computer science students and software
   engineers.  
   
 
-## Problem ##
+## Why it does it ##
   Big O notation is a difficult concept to understand, and this app helps by providing 
   information about the orders simply, easily and in multiple formats.
   
@@ -39,7 +39,7 @@ Once the project moves into development, the press release can be used as a touc
   Big O Notation Reference App puts relevant information in users hands when and where they need it. 
   
 
-## Quote from You ##
+## Quote from the apps creator ##
   Your frustrations around understanding big O notation will be diminished with the Big O Notation Reference App
 
 ## How to Get Started ##
@@ -49,8 +49,7 @@ Once the project moves into development, the press release can be used as a touc
 ## Customer Quote ##
   Jay Random - I struggled with big O notation, and other engineers made fun of me when I didn't
   know the difference between constant time and quadratic time. Thanks to the Big O Notation Reference App I laugh at them now, then I beat them up and take their lunch money. 
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
-## Closing and Call to Action ##
+  
+## Big O notation no longer a big deal ##
   If you want to deepen or brush up your understanding of big O notation use Big O Notation Reference App. Its free. You're welcome. 
   
