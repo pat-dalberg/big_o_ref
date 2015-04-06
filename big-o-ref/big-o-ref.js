@@ -3,12 +3,17 @@ if (Meteor.isClient) {
   //Session.setDefault('counter', 0);
 
   Template.notationView.helpers({
-    
+    theName : function(){
+      //console.log('Template.notationView.helpers : updateView',name);
+      return Session.get("name");
+    }
   });
 
   Template.body.events({
     "change #notationsList" : function(event){
-      window.alert('I DUNNO SOMETHING SELECTED HERP ' + event.currentTarget.value);
+      //window.alert('I DUNNO SOMETHING SELECTED HERP ' + event.currentTarget.value);
+      //Template.notationView.__helpers.get('updateView')(event.currentTarget.value);
+      Session.set("name",event.currentTarget.value);
     }
   });
 

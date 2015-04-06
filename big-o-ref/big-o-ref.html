@@ -9,16 +9,18 @@
     {{> notationElement }}
     {{/each}}  
   </select>    
+  {{> notationView}}
 
    
   
 </body>
 
+<template name="notationView">
+    <div>{{theName}}</div>
+</template>
+
 <template name="notationElement">
   <option value="{{name}}">{{name}}</option>
 </template>  
 
-<template name="notationView">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+
