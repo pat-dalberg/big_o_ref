@@ -35,3 +35,9 @@ a:active, a:hover {
 .examples {
   margin:8px;
 }
+
+.orderCode {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
