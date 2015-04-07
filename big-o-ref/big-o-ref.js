@@ -1,23 +1,4 @@
 if (Meteor.isClient) {
-/*
-notation schema
-name :
-alternativeNames: []
-order: from zero ascending, with zero being the best
-formula:
-wikipediaLink:
-*/
-
-/*
-constant / O(1)
-logarithmic / O(log n)
-linear / O(n)
-quadratic / O(n^2) , O(n*n)
-expotential / O(c^n), c > 1
-factorial / O(n!)
-n * n factorial / O(n * n!)
-*/
-
 
   Notations = new Mongo.Collection("notations");
   Notations.insert({ 
@@ -84,19 +65,20 @@ Template.body.helpers({
   Template.notationView.helpers({
     theName : function(){
       var q = {name:Session.get("name")};
-      //console.log('Template.notationView.helpers : theName',Notations.find(q));
       return Notations.findOne(q);
     }
   });
 
-  Template.notationView.onRendered(function(){
-    
-    //var q = {name:Session.get("name")};
-    //var q = {name:'constant'};
-    //debugger;
-    //var cData = Notations.findOne(q).fetch();
-//        var cData = Notations.find(q,{fields:{_id: 0, chartData: 1}}).fetch();
-    //console.log('cData',cData);
+  var factorial = function(num){
+    var tmp = num;
+    while(--num > 1){
+        tmp *= num;
+    }
+    return tmp;
+  };
+
+  var updateChart = function(){
+    $('#chartContainer').empty();    
     var cData = [];
     var idx, op, elem, objData, i; 
     switch(Session.get("name")){
@@ -130,7 +112,7 @@ Template.body.helpers({
       case "quadratic":
         for(i = 0;i < 10;i++){
           idx = i + 1;
-          op = 10;
+          op = (idx * idx) * 10;
           elem = idx * 10;
           objData = {'type':'data', 'Operations':op, 'Elements': elem};
           cData.push(objData);
@@ -139,7 +121,7 @@ Template.body.helpers({
       case "expotential":
         for(i = 0;i < 10;i++){
           idx = i + 1;
-          op = 10;
+          op = Math.pow(2,idx) * 10;
           elem = idx * 10;
           objData = {'type':'data', 'Operations':op, 'Elements': elem};
           cData.push(objData);
@@ -148,7 +130,7 @@ Template.body.helpers({
       case "factorial":
         for(i = 0;i < 10;i++){
           idx = i + 1;
-          op = 10;
+          op = factorial(idx) * 10;
           elem = idx * 10;
           objData = {'type':'data', 'Operations':op, 'Elements': elem};
           cData.push(objData);
@@ -157,17 +139,13 @@ Template.body.helpers({
       case "n * n factorial":
         for(i = 0;i < 10;i++){
           idx = i + 1;
-          op = 10;
+          op = (idx * factorial(idx)) * 10;
           elem = idx * 10;
           objData = {'type':'data', 'Operations':op, 'Elements': elem};
           cData.push(objData);
         }      
         break;     
-
     }
-
-  
-
     var svg = dimple.newSvg("#chartContainer", 590, 400);
     data = dimple.filterData(cData, "type", "data");
     var myChart = new dimple.chart(svg, data);
@@ -177,14 +155,17 @@ Template.body.helpers({
     var y = myChart.addMeasureAxis("y", 'Operations');
     y.overrideMax = 100;
     var s = myChart.addSeries(null, dimple.plot.line);
-    myChart.draw();
+    myChart.draw();    
+  };
+
+  Template.notationView.onRendered(function(){
+    updateChart();
   });
 
   Template.body.events({
     "change #notationsList" : function(event){
       Session.set("name",event.currentTarget.value);
-      //Blaze.remove(Template.notationView);
-      //Blaze.render(Template.notationView,$(body));
+      updateChart();
     }
   });
 
