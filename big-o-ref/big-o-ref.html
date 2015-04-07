@@ -1,5 +1,5 @@
 <head>
-  <title>big-o-ref</title>
+  <title>Big O Reference</title>
 </head>
 
 <body>
@@ -9,25 +9,17 @@
     {{> notationElement }}
     {{/each}}  
   </select>    
-  {{> notationView}}
-
-   
-  
+  {{> notationView}}  
 </body>
 
 <template name="notationView">
-    <div>{{theName.name}}</div>
-    <div>{{theName.formula}}</div>
-    <div>Examples : {{theName.examples}}</div>
+    <div class="timeComplexity">{{theName.name}} time complexity</div>
+    <div class="formula">{{theName.formula}}</div>
+    <div class="examples">Examples : {{theName.examples}}</div>
     <a href="{{theName.wikiLink}}">Wikipedia link</a>
-
     <!-- begin dimple chart -->
-    <div id="chartContainer">
-  
-
-    </div>
+    <div id="chartContainer"></div>
     <!-- end dimple chart -->
-
 </template>
 
 <template name="notationElement">

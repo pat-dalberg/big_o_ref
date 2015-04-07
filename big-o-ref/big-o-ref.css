@@ -2,3 +2,36 @@
 body {
   font-family: Arial, sans-serif;
 }
+
+a {
+  color: white;
+  background-color: blue;
+  text-decoration: none;
+  margin-left: 8px;
+  padding: 2px;
+}
+
+a:active, a:hover {
+  color:#ccc;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.timeComplexity {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  background: #ccc;
+}
+
+.formula {
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.examples {
+  margin:8px;
+}

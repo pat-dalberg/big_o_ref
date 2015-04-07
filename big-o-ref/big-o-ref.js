@@ -153,7 +153,7 @@ Template.body.helpers({
         }      
         break;     
     }
-    var svg = dimple.newSvg("#chartContainer", 590, 400);
+    var svg = dimple.newSvg("#chartContainer", 500, 400);
     data = dimple.filterData(cData, "type", "data");
     var myChart = new dimple.chart(svg, data);
     myChart.setBounds(60, 30, 505, 305);
