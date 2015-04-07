@@ -80,9 +80,10 @@ Template.body.helpers({
   var updateChart = function(){
     $('#chartContainer').empty();    
     var cData = [];
-    var idx, op, elem, objData, i; 
+    var idx, op, elem, objData, i, color; 
     switch(Session.get("name")){
       case "constant":
+        color = "Green";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = 10;
@@ -92,6 +93,7 @@ Template.body.helpers({
         }
         break;
       case "logarithmic":
+        color = "GreenYellow";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = Math.log(idx) * 10;
@@ -101,6 +103,7 @@ Template.body.helpers({
         }
         break;
       case "linear":
+        color = "Yellow";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = idx * 10; 
@@ -110,6 +113,7 @@ Template.body.helpers({
         }      
         break;  
       case "quadratic":
+        color = "Orange";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = (idx * idx) * 10;
@@ -119,6 +123,7 @@ Template.body.helpers({
         }
         break;
       case "expotential":
+        color = "Purple";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = Math.pow(2,idx) * 10;
@@ -128,6 +133,7 @@ Template.body.helpers({
         }      
         break;
       case "factorial":
+        color = "Red";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = factorial(idx) * 10;
@@ -137,6 +143,7 @@ Template.body.helpers({
         }      
         break;
       case "n * n factorial":
+        color = "Black";
         for(i = 0;i < 10;i++){
           idx = i + 1;
           op = (idx * factorial(idx)) * 10;
@@ -154,7 +161,9 @@ Template.body.helpers({
     x.addOrderRule("Elements");
     var y = myChart.addMeasureAxis("y", 'Operations');
     y.overrideMax = 100;
-    var s = myChart.addSeries(null, dimple.plot.line);
+    var s = myChart.addSeries("Order", dimple.plot.line);
+    s.lineWeight = 5;
+    myChart.assignColor("Order",color);
     myChart.draw();    
   };
 
