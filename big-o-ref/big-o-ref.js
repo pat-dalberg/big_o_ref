@@ -23,17 +23,17 @@ n * n factorial / O(n * n!)
   Notations.insert({name : "constant",
    formula : "O(1)",
    order : 0,
-   chartData :[{'type':'data','operationsValue': 10, 'elementsValue':10},
-     {'type':'data','operationsValue': 10, 'elementsValue':20},
-     {'type':'data','operationsValue': 10, 'elementsValue':30},
-     {'type':'data','operationsValue': 10, 'elementsValue':40},
-     {'type':'data','operationsValue': 10, 'elementsValue':50},
-     {'type':'data','operationsValue': 10, 'elementsValue':60},
-     {'type':'data','operationsValue': 10, 'elementsValue':70},
-     {'type':'data','operationsValue': 10, 'elementsValue':80},
-     {'type':'data','operationsValue': 10, 'elementsValue':90},
-     {'type':'data','operationsValue': 10, 'elementsValue':100},
-     {'type':'data','operationsValue': 10, 'elementsValue':110},
+   chartData :[{'type':'data','Operations': 10, 'Elements':10},
+     {'type':'data','Operations': 10, 'Elements':20},
+     {'type':'data','Operations': 10, 'Elements':30},
+     {'type':'data','Operations': 10, 'Elements':40},
+     {'type':'data','Operations': 10, 'Elements':50},
+     {'type':'data','Operations': 10, 'Elements':60},
+     {'type':'data','Operations': 10, 'Elements':70},
+     {'type':'data','Operations': 10, 'Elements':80},
+     {'type':'data','Operations': 10, 'Elements':90},
+     {'type':'data','Operations': 10, 'Elements':100},
+     {'type':'data','Operations': 10, 'Elements':110},
     ],
    examples: "Array access, Stack insertion and deletion, Singly-Linked List insertion and deletion, Doubly-Linked List insertion and deletion, Hash Table search, insertion and deletion, Determining if a binary number is even or odd", 
    wikiLink : "http://en.wikipedia.org/wiki/Time_complexity#Constant_time"});
@@ -101,16 +101,16 @@ Template.body.helpers({
   });
 
   Template.notationView.onRendered(function(){
-    console.log('Template.notationView.onRendered');
-    var q = {name:Session.get("name")};
-    var cData = Notations.findOne(q).chartData;
+    //console.log('Template.notationView.onRendered');
+    //var q = {name:Session.get("name")};
+    var cData = Notations.find({name:Session.get("name")},{fields:{_id: 0, chartData: 1}});
     var svg = dimple.newSvg("#chartContainer", 590, 400);
     data = dimple.filterData(cData, "type", "data");
     var myChart = new dimple.chart(svg, data);
     myChart.setBounds(60, 30, 505, 305);
-    var x = myChart.addCategoryAxis("x", "elementsValue");
-    x.addOrderRule("elementsValue");
-    myChart.addMeasureAxis("y", "operationsValue");
+    var x = myChart.addCategoryAxis("x", "Elements");
+    x.addOrderRule("Elements");
+    myChart.addMeasureAxis("y", "Operations");
     var s = myChart.addSeries(null, dimple.plot.line);
     myChart.draw();
   });
