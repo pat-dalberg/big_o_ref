@@ -43,7 +43,7 @@ Once the project moves into development, the press release can be used as a touc
   Your frustrations around understanding big O notation will be diminished with the Big O Notation Reference App
 
 ## How to Get Started ##
-  Go to (url) or download the app. Select the big O order you want to know more about. Obtain
+  Go to http://bigo.meteor.com or download the app(COMING SOON). Select the big O order you want to know more about. Obtain
   knowledge. Do things. Have smart conversations about the time complexity of algorithms.
 
 ## Customer Quote ##
